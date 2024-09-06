@@ -5,26 +5,15 @@
 #
 
 import collections
-import importlib
 import json
 from os import walk
 from pathlib import Path
 from typing import Dict, List, Optional
+from matplotlib import pyplot as plt
+from marl_eval.plotting_tools.plotting import performance_profiles, aggregate_scores, \
+    probability_of_improvement, sample_efficiency_curves, plot_single_task
 
-_has_marl_eval = importlib.util.find_spec("marl_eval") is not None
-if _has_marl_eval:
-    from marl_eval.plotting_tools.plotting import (
-        aggregate_scores,
-        performance_profiles,
-        plot_single_task,
-        probability_of_improvement,
-        sample_efficiency_curves,
-    )
-    from marl_eval.utils.data_processing_utils import (
-        create_matrices_for_rliable,
-        data_process_pipeline,
-    )
-    from matplotlib import pyplot as plt
+from marl_eval.utils.data_processing_utils import data_process_pipeline, create_matrices_for_rliable
 
 
 def get_raw_dict_from_multirun_folder(multirun_folder: str) -> Dict:
@@ -59,7 +48,7 @@ def _get_json_files_from_multirun(multirun_folder: str) -> List[str]:
 
 
 def load_and_merge_json_dicts(
-    json_input_files: List[str], json_output_file: Optional[str] = None
+        json_input_files: List[str], json_output_file: Optional[str] = None
 ) -> Dict:
     """Loads and merges json dictionaries to form the ``marl-eval`` input dictionary .
 
@@ -175,7 +164,7 @@ class Plotting:
 
     @staticmethod
     def probability_of_improvement(
-        environment_comparison_matrix, algorithms_to_compare: List[List[str]]
+            environment_comparison_matrix, algorithms_to_compare: List[List[str]]
     ):
         return probability_of_improvement(
             environment_comparison_matrix,

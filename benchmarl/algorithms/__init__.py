@@ -14,6 +14,7 @@ from .mappo import Mappo, MappoConfig
 from .masac import Masac, MasacConfig
 from .qmix import Qmix, QmixConfig
 from .vdn import Vdn, VdnConfig
+from .causal_iql import CausalIql, CausalIqlConfig
 
 classes = [
     "Iddpg",
@@ -22,6 +23,8 @@ classes = [
     "IppoConfig",
     "Iql",
     "IqlConfig",
+    "CausalIql",
+    "CausalIqlConfig",
     "Isac",
     "IsacConfig",
     "Maddpg",
@@ -41,6 +44,7 @@ classes = [
 algorithm_config_registry = {
     "mappo": MappoConfig,
     "ippo": IppoConfig,
+    "causal_iql": CausalIqlConfig,
     "maddpg": MaddpgConfig,
     "iddpg": IddpgConfig,
     "masac": MasacConfig,

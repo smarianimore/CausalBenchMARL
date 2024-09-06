@@ -3,7 +3,7 @@
 #  This source code is licensed under the license found in the
 #  LICENSE file in the root directory of this source tree.
 #
-
+import json
 import os
 from pathlib import Path
 from typing import List
@@ -58,9 +58,10 @@ def run_benchmark() -> List[str]:
 
 if __name__ == "__main__":
     # Uncomment this to rerun the benchmark that generates the files
-    experiments_json_files = run_benchmark()
 
-    raw_dict = load_and_merge_json_dicts(experiments_json_files)
+    experiment_json_files = run_benchmark()
+
+    raw_dict = load_and_merge_json_dicts(experiment_json_files)
 
     # Load and process experiment outputs
     # raw_dict = load_and_merge_json_dicts(experiments_json_files)
@@ -83,8 +84,11 @@ if __name__ == "__main__":
     Plotting.task_sample_efficiency_curves(
         processed_data=processed_data, env="vmas", task="navigation"
     )
-    Plotting.probability_of_improvement(
-        environment_comparison_matrix,
-        algorithms_to_compare=[["qmix", "mappo"]],
-    )
+    try:
+        Plotting.probability_of_improvement(
+            environment_comparison_matrix,
+            algorithms_to_compare=[["mappo", "qmix"]],
+        )
+    except:
+        pass
     plt.show()

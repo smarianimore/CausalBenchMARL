@@ -164,7 +164,7 @@ You can also load and launch your experiments from within a script
 )
 experiment.run()
 ```
-[![Example](https://img.shields.io/badge/Example-blue.svg)](examples/running/run_experiment.py)
+[![Example](https://img.shields.io/badge/Example-blue.svg)](examples/running/run_experiment_causal.py)
 
 
 You can also run multiple experiments in a `Benchmark`.

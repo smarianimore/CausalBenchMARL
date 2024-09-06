@@ -3,11 +3,11 @@ defaults:
   - _self_
 
 # The device for collection (e.g. cuda)
-sampling_device: "cpu"
+sampling_device: "cuda"
 # The device for training (e.g. cuda)
-train_device: "cpu"
+train_device: "cuda"
 # The device for the replay buffer of off-policy algorithms (e.g. cuda)
-buffer_device: "cpu"
+buffer_device: "cuda"
 
 # Whether to share the parameters of the policy within agent groups
 share_policy_params: True
