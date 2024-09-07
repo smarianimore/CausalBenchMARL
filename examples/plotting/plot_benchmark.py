@@ -57,9 +57,11 @@ def run_benchmark() -> List[str]:
 
 
 if __name__ == "__main__":
+    experiment_json_files = [
+        '../running/causaliql_navigation_causalmlp__c40617a0_24_09_07-12_39_57/causaliql_navigation_causalmlp__c40617a0_24_09_07-12_39_57.json'
+                  ]
     # Uncomment this to rerun the benchmark that generates the files
-
-    experiment_json_files = run_benchmark()
+    # experiment_json_files = run_benchmark()
 
     raw_dict = load_and_merge_json_dicts(experiment_json_files)
 
