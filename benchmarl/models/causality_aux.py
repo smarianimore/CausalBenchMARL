@@ -12,14 +12,14 @@ class CausalActionsFilter:
         self.ci_online = ci_online
         self.task = task
         script_path = __file__.replace('causality_aux.py', 'causality_best')
-        script_path = script_path.replace('/lib/python3.10/site-packages/benchmarl-1.2.1-py3.10.egg', '')
+        script_path = script_path.replace('/MyEnv/lib/python3.10/site-packages/benchmarl-1.2.1-py3.10.egg', '')
 
         self.device = kwargs.get('device', 'cuda' if torch.cuda.is_available() else 'cpu')
         self.path_best = f'{script_path}/{self.task}'
 
         self.last_obs_continuous = None
 
-        causal_table = pd.read_pickle(f'{self.path_best}\\causal_table.pkl')
+        causal_table = pd.read_pickle(f'{self.path_best}/causal_table.pkl')
         with open(f'{self.path_best}/best_others.json', 'r') as file:
             info = json.load(file)
 
