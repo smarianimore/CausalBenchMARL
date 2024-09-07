@@ -3,15 +3,17 @@ import numpy as np
 import pandas as pd
 import torch
 import json
+import os
 
 LABEL_reward_action_values = 'reward_action_values'
+script_path = os.path.abspath(__file__)
 
 class CausalActionsFilter:
     def __init__(self, ci_online: bool, task: str, **kwargs):
         self.ci_online = ci_online
         self.task = task
         self.device = kwargs.get('device', 'cuda' if torch.cuda.is_available() else 'cpu')
-        self.path_best = f'C:\\Users\\giova\\Documents\\Research\\BenchMARL\\benchmarl\\models\\causality_best\\{self.task}'
+        self.path_best = f'{script_path}/causality_best/{self.task}'
 
         self.last_obs_continuous = None
 
