@@ -11,6 +11,7 @@ class CausalActionsFilter:
     def __init__(self, ci_online: bool, task: str, **kwargs):
         self.ci_online = ci_online
         self.task = task
+        # TODO: better script path definition
         script_path = __file__.replace('causality_aux.py', 'causality_best')
         script_path = script_path.replace('/MyEnv/lib/python3.10/site-packages/benchmarl-1.2.1-py3.10.egg', '')
 
