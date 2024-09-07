@@ -3,10 +3,9 @@ import numpy as np
 import pandas as pd
 import torch
 import json
-import os
 
 LABEL_reward_action_values = 'reward_action_values'
-script_path = os.path.abspath(__file__)
+script_path = __file__
 
 class CausalActionsFilter:
     def __init__(self, ci_online: bool, task: str, **kwargs):
