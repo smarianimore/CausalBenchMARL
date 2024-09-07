@@ -1,0 +1,22 @@
+[
+        [
+                "agent_0_action_0",
+                "agent_0_reward"
+        ],
+        [
+                "value_0",
+                "agent_0_reward"
+        ],
+        [
+                "kind_0",
+                "agent_0_reward"
+        ],
+        [
+                "kind_1",
+                "agent_0_reward"
+        ],
+        [
+                "value_1",
+                "agent_0_reward"
+        ]
+]

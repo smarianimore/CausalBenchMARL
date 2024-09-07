@@ -76,8 +76,8 @@ class CausalMlp(Model):
                     for _ in range(self.n_agents if not self.share_params else 1)
                 ]
             )
-        # TODO:
-        task_name = 'balance'
+        # TODO: get task_name
+        task_name = 'navigation'
         self.causal_action_filter = CausalActionsFilter(False, task_name, device=self.device)
 
     def _perform_checks(self):
@@ -139,10 +139,10 @@ class CausalMlp(Model):
 
         tensordict.set(self.out_key, res)
 
-        actions_to_filter_tensor = self.causal_action_filter.get_actions(input)
-        # print(actions_to_filter_tensor)
-        #print(time.time()-in_time)
-        tensordict['agents'].set('action_mask', actions_to_filter_tensor)
+        actions_mask = self.causal_action_filter.get_actions(input)
+        # print(input.shape, actions_mask.shape)
+        # print(time.time()-in_time)
+        tensordict['agents'].set('action_mask', actions_mask)
 
         return tensordict
 

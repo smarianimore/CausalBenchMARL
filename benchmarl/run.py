@@ -35,6 +35,7 @@ def hydra_experiment(cfg: DictConfig) -> None:
     print(OmegaConf.to_yaml(cfg))
 
     experiment = load_experiment_from_hydra(cfg, task_name=task_name)
+    experiment.task_name = task_name
     experiment.run()
 
 
