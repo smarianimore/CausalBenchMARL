@@ -5,18 +5,20 @@ import torch
 import json
 
 LABEL_reward_action_values = 'reward_action_values'
-script_path = __file__
+
 
 class CausalActionsFilter:
     def __init__(self, ci_online: bool, task: str, **kwargs):
         self.ci_online = ci_online
         self.task = task
+        script_path = __file__.replace('causality_aux.py', 'causality_best')
+
         self.device = kwargs.get('device', 'cuda' if torch.cuda.is_available() else 'cpu')
-        self.path_best = f'{script_path}/causality_best/{self.task}'
+        self.path_best = f'{script_path}\\{self.task}'
 
         self.last_obs_continuous = None
 
-        causal_table = pd.read_pickle(f'{self.path_best}/causal_table.pkl')
+        causal_table = pd.read_pickle(f'{self.path_best}\\causal_table.pkl')
         with open(f'{self.path_best}/best_others.json', 'r') as file:
             info = json.load(file)
 
