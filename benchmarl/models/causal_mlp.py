@@ -77,7 +77,8 @@ class CausalMlp(Model):
                 ]
             )
         # TODO: get task_name
-        task_name = 'navigation'
+	#task_name = 'navigation'
+        task_name = 'give_way'
         self.causal_action_filter = CausalActionsFilter(False, task_name, device=self.device)
 
     def _perform_checks(self):
