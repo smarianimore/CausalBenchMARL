@@ -14,6 +14,7 @@ class CausalActionsFilter:
         # TODO: better script path definition
         script_path = __file__.replace('causality_aux.py', 'causality_best')
         script_path = script_path.replace('/.env/lib/python3.10/site-packages/benchmarl-1.2.1-py3.10.egg', '')
+        #script_path = script_path.replace('/', '')
 
         self.device = kwargs.get('device', 'cuda' if torch.cuda.is_available() else 'cpu')
         self.path_best = f'{script_path}/{self.task}'
